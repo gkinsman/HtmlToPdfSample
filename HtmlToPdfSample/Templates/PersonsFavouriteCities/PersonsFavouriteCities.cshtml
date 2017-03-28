@@ -1,0 +1,24 @@
+﻿@using HtmlToPdfSample.Templates.PersonsFavouriteCities
+@using RazorEngine.Templating
+@inherits TemplateBase<PersonsFavouriteCitiesModel>
+
+<html>
+<head>
+    <title>@Model.Name</title>
+    <style type="text/css">
+        .favourite-cities { border: 1px solid red; }
+        .favourite-cities .favourite-city { background-color: green; }
+    </style>
+</head>
+<body>
+<h1>@Model.Name</h1>
+<span>Born on: @Model.DateOfBirth.ToLongDateString()</span>
+
+<div class="favourite-cities">
+    @foreach (var city in Model.FavouriteCities)
+    {
+        <div class="favourite-city">@city</div>
+    }
+</div>
+</body>
+</html>
